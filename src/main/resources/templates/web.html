@@ -4,7 +4,7 @@
     <title>Student Details</title>
 </head>
 <body>
-<h1>Student Details</h1>
+<h1>Student Details all</h1>
 <form th:action="@{/web/insert}" th:method="post" th:object ="${user}">
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" th:field="*{firstName}" name="firstName"><br><br>
