@@ -10,6 +10,8 @@ import com.brevitaz.repository.AddressRepository;
 import com.brevitaz.repository.DepartmentRepository;
 import com.brevitaz.repository.StudentRepository;
 import com.brevitaz.repository.SubjectRepository;
+import com.brevitaz.services.AddressService;
+import com.brevitaz.services.DepartmentService;
 import com.brevitaz.services.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,8 @@ import java.util.Set;
 @RequestMapping("/web")
 public class studentWeb {
     private final SubjectService subjectService;
+    private final AddressService addressService;
+    private final DepartmentService departmentService;
 
     private final SubjectRepository subjectRepository;
     private final DepartmentRepository departmentRepository;
@@ -34,8 +38,10 @@ public class studentWeb {
     private final StudentRepository studentRepository;
 
     @Autowired
-    public studentWeb(final SubjectService subjectService, final SubjectRepository subjectRepository, final DepartmentRepository departmentRepository, final AddressRepository addressRepository, final StudentRepository studentRepository) {
+    public studentWeb(final SubjectService subjectService, final AddressService addressService, final DepartmentService departmentService, final SubjectRepository subjectRepository, final DepartmentRepository departmentRepository, final AddressRepository addressRepository, final StudentRepository studentRepository) {
         this.subjectService = subjectService;
+        this.addressService = addressService;
+        this.departmentService = departmentService;
         this.subjectRepository = subjectRepository;
         this.departmentRepository = departmentRepository;
         this.addressRepository = addressRepository;
@@ -93,9 +99,9 @@ public class studentWeb {
         }
 
 
-        Address address1 = addressRepository.save(address);
-        Department department1 = departmentRepository.save(department);
+        Address address1 =  addressService.addAddress(address);
 
+        Department department1 = departmentService.addDepartment(department);
 
         student.setAddress(address1);
         student.setDepartment(department1);
