@@ -2,24 +2,28 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Student Details Table</title>
+    <title>Student Details</title>
     <!-- Link to Bootstrap stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         /* Add custom styles here */
         a{
         position: absolute;
-        left: 50%;
+        left: 60%;
         transform: translateX(-50%);
         display:inline;
-          text-align: center;
+        text-align: center;
 
           text-decoration: none;
           padding: 10px;
-          background-color: green;
+          background-color: blue;
           border: 1px solid black;
           color: red;
         }
+        a:hover {
+          background-color: #0056b3;
+}
+
 
     </style>
 </head>
@@ -28,7 +32,7 @@
 <!--<input type="button" onclick="/home/shikha/Documents/Intern/studentsDetails_WebPage/src/main/resources/templates ='index.html'">ADD</input>-->
 <a th:href="@{/web/add}">Add</a>
 <div class="container">
-    <h1>Student Details Table</h1>
+    <h1>Student Details</h1>
 
     <table class="table">
         <thead>
@@ -43,15 +47,7 @@
             <th>Address</th>
             <th>Department</th>
             <th>Subject</th>
-            <!--      <th>House Number</th>-->
-            <!--      <th>Landmark</th>-->
-            <!--      <th>City</th>-->
-            <!--      <th>State</th>-->
-            <!--      <th>PinCode</th>-->
-            <!--      <th>Subject ID</th>-->
-            <!--      <th>Subject Name</th>-->
-            <!--      <th>Department ID</th>-->
-            <!--      <th>Department Name</th>-->
+
         </tr>
         </thead>
         <tbody>
@@ -65,22 +61,9 @@
             <td th:text="${student.gender}"></td>
             <td th:text="|${student.address.houseNo} , ${student.address.landMark}, ${student.address.city}, ${student.address.state}, ${student.address.pinCode}|"></td>
             <td th:text="${student.department.name}"></td>
-            <!--      <td th:text ="${student.subject.name}"></td>-->
-            <td th:each="subject : ${student.subject}"  th:text="${subject.name}">
-<!--                [[${subject.name}]]-->
+            <td th:each="subject : ${student.subject}" th:text="${subject.name}">
             </td>
-            <!--      <td th:text ="${student.gender}">1</td>-->
-            <!--      <td th:text ="${student.gender}">1</td>-->
-            <!--      <td th:text ="${student.gender}">1</td>-->
-            <!--      <td>123 Main St.</td>-->
-            <!--      <td>Apt. 5</td>-->
-            <!--      <td>Anytown</td>-->
-            <!--      <td>CA</td>-->
-            <!--      <td>12345</td>-->
-            <!--      <td>1</td>-->
-            <!--      <td>Mathematics</td>-->
-            <!--      <td>1</td>-->
-            <!--      <td>Science</td>-->
+
         </tr>
         <!-- Add more rows for each student -->
         </tbody>
@@ -88,5 +71,6 @@
 </div>
 <!-- Link to Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<h3>:- Nayan Patel</h3>
 </body>
 </html>

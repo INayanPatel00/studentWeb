@@ -37,7 +37,6 @@ public class studentWeb {
     public studentWeb(final SubjectService subjectService, final SubjectRepository subjectRepository, final DepartmentRepository departmentRepository, final AddressRepository addressRepository, final StudentRepository studentRepository) {
         this.subjectService = subjectService;
         this.subjectRepository = subjectRepository;
-
         this.departmentRepository = departmentRepository;
         this.addressRepository = addressRepository;
         this.studentRepository = studentRepository;
