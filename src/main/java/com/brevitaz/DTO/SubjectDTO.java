@@ -1,7 +1,6 @@
 package com.brevitaz.DTO;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @NoArgsConstructor

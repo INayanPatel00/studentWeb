@@ -1,7 +1,10 @@
 package com.brevitaz.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
@@ -42,7 +45,7 @@ public class Student {
     @OneToOne
     private Department department;
 
-    @ManyToMany( fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "student_subject_mapping",
             joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
@@ -59,9 +62,28 @@ public class Student {
         this.age = age;
         this.gender = gender;
         this.address = address;
-        this.department= department;
+        this.department = department;
         this.subject = subject;
     }
 
+    public Student(final String firstName, final String lastName, final String email, final long phone, final int age, final String gender, final Address address, final Department department) {
 
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.age = age;
+        this.gender = gender;
+        this.address = address;
+        this.department = department;
+    }
+
+    public Student(final String firstName, final String lastName, final String email, final long phone, final int age, final String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.age = age;
+        this.gender = gender;
+    }
 }

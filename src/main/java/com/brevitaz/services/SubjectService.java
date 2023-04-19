@@ -63,23 +63,23 @@ public class SubjectService {
 
 
         Set<StudentResponseDTO> studentResponseDTOS = new HashSet<>();
-            for (Student student : subjects.getStudent()) {
-                studentResponseDTOS.add(new StudentResponseDTO(student.getId(),
-                        student.getFirstName(),
-                        student.getLastName(),
-                        student.getEmail(),
-                        student.getPhone(),
-                        student.getAge(),
-                        student.getGender()));
-            }
-            SubjectResponseDTO subjectResponseDTO = new SubjectResponseDTO(
-                    subjects.getId(),
-                    subjects.getName(),
-                    studentResponseDTOS);
+        for (Student student : subjects.getStudent()) {
+            studentResponseDTOS.add(new StudentResponseDTO(student.getId(),
+                    student.getFirstName(),
+                    student.getLastName(),
+                    student.getEmail(),
+                    student.getPhone(),
+                    student.getAge(),
+                    student.getGender()));
+        }
+        SubjectResponseDTO subjectResponseDTO = new SubjectResponseDTO(
+                subjects.getId(),
+                subjects.getName(),
+                studentResponseDTOS);
 
-            subjectResponseDTOS.add(subjectResponseDTO);
+        subjectResponseDTOS.add(subjectResponseDTO);
         return subjectResponseDTOS;
 
-        }
+    }
 
 }

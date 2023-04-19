@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User-Entered Subject List</title>
+</head>
+<body>
+<h1>User-Entered Subject List</h1>
+
+<form>
+    <label for="subjects">Enter your subjects, separated by commas:</label><br>
+    <input type="text" id="subjects" name="subjects"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<p>Your entered subjects:</p>
+<ul id="subject-list"></ul>
+
+<script>
+		document.querySelector('form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			var subjectsInput = document.getElementById('subjects').value;
+			var subjectsArray = subjectsInput.split(",");
+			var listElement = document.getElementById('subject-list');
+			listElement.innerHTML = '';
+			for (var i = 0; i < subjectsArray.length; i++) {
+				var subject = subjectsArray[i].trim();
+				if (subject) {
+					var listItem = document.createElement('li');
+					listItem.innerText = subject;
+					listElement.appendChild(listItem);
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>
